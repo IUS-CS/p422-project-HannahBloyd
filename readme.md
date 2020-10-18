@@ -8,4 +8,21 @@ Your project should have the following requirements met:
 * A client side component written in Angular
 * At least four different interactive views for the client
 
-You may choose whatever kid of project you like within the ethical guidlines of the university. Commit your propasal to this file and we will discuss your project idea if it needs improvement.
+# Project Proposal
+
+My plan is to make a contact/phone book. It should be able to store a variety of contact information for people, like you would store in your phone.
+Types of information that are currently planned to be store includes:
+* Name
+* Phone Number
+* Address
+* Email
+* Company
+
+The user will have the ability to:
+* Create new contacts
+* Retrieve all information from a given contact
+* Edit a contact
+* Delete a contact
+* Create a group for similar contacts, which will include adding and deleting users from a group and getting all users and their information that are included in the group
+* Searching your contacts based on certain fields
+* Send a message to a contact and keep track of how many messages have been sent to that contact
