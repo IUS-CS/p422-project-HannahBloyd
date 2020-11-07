@@ -1,0 +1,10 @@
+<div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let contact of allContacts" (click)="contactSelected(contact)">{{contact.firstName}} {{contact.lastName}}</li>
+    </ul>
+
+</div>
+
+<div *ngIf="selectedContact">
+    <app-contact-display [contact]="selectedContact"></app-contact-display>
+</div>
