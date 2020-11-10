@@ -1,6 +1,6 @@
 <div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let contact of allContacts" (click)="contactSelected(contact)">{{contact.firstName}} {{contact.lastName}}
+        <li class="list-group-item" *ngFor="let contact of allContacts" (click)="contactSelected(contact)" routerLink="/contact/{{contact.firstName}}/{{contact.lastName}}">{{contact.firstName}} {{contact.lastName}}
             <button type="button" class="btn btn-outline-primary float-right">Edit Contact</button>
         </li>
         
