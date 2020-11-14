@@ -1,0 +1,7 @@
+<h2>Contact Book Home Page</h2>
+<button type="button" class="btn btn-outline-info" (click)="onSelect()">View All Contacts</button>
+<button type="button" class="btn btn-outline-danger"(click)="onClear()" routerLink="/contacts">Clear</button>
+
+<div *ngIf="viewAllContacts">
+	<app-contact-directory></app-contact-directory>
+</div>

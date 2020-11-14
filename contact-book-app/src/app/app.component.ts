@@ -7,14 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'contact-book-app';
-  viewAllContacts = false;
-
-  onSelect(){
-    this.viewAllContacts = true;
-  }
-
-  onClear(){
-    this.viewAllContacts = false;
-  }
+  
 }
 

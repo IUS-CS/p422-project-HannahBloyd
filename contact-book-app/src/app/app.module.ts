@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { ContactDirectoryComponent } from './contact-directory/contact-directory.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactDisplayComponent } from './contact-display/contact-display.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactDirectoryComponent,
-    ContactDisplayComponent
+    ContactDisplayComponent,
+    PageNotFoundComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
