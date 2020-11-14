@@ -13,9 +13,7 @@ export class ContactDataService {
   selectedContact : Contact;
 
   public getContact(id : number): Contact {
-    console.log(id);
     const res = this.contacts.find(c => c.contactId == id);
-    console.log(res.contactId)
 
     return res;
   }
