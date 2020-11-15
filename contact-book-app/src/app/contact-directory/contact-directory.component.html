@@ -1,7 +1,7 @@
 <div>
     <h3>Contacts</h3>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let contact of allContacts" (click)="contactSelected(contact)" routerLink="/contact/{{contact.contactId}}">{{contact.firstName}} {{contact.lastName}}
+        <li class="list-group-item" *ngFor="let contact of allContacts" routerLink="/contact/{{contact.contactId}}">{{contact.firstName}} {{contact.lastName}}
             <button type="button" class="btn btn-outline-primary float-right">Edit Contact</button>
         </li>
         
@@ -9,6 +9,6 @@
 
 </div>
 
-<div *ngIf="selectedContact">
-    <app-contact-display [contact]="selectedContact"></app-contact-display>
+<div *ngIf="contact">
+    <app-contact-display [contact]="contact"></app-contact-display>
 </div>

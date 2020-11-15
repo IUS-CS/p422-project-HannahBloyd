@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ContactSchema = mongoose.Schema({
-    contactId : {type: Number, required :true, unique : true},
+    contactId : {type: String, required :true, unique : true},
     firstName : {type: String, required :true},
     lastName : String,
     number: String,
@@ -10,7 +10,7 @@ const ContactSchema = mongoose.Schema({
     company: String
 });
 
-ContactSchema.query.byContactId = function(id) {
+ContactSchema.query.byId = function(id) {
     return this.where({contactId: id});
   }
 

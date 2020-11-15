@@ -13,6 +13,7 @@ const routes: Routes = [
 		redirectTo: '/home', 
 		pathMatch: 'full'
   },
+  {path : 'notfound', component: PageNotFoundComponent},
   { path: '**', component: PageNotFoundComponent },
 ];
 

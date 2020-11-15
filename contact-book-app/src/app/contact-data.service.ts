@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import { Contact } from './contact';
 import { CONTACTS } from './staticContacts';
 
@@ -7,14 +9,19 @@ import { CONTACTS } from './staticContacts';
 })
 export class ContactDataService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   contacts = CONTACTS;
   selectedContact : Contact;
+  private url = '/v1/contact';
 
-  public getContact(id : number): Contact {
-    const res = this.contacts.find(c => c.contactId == id);
+  public getContact(id : String): Observable<Contact> {
+    return this.http.get<Contact>(`${this.url}/${id}`);
+  }
 
-    return res;
+  public getContactNames(): Observable<string[]> {
+    return this.http.get<string[]>(this.url);
   }
 }

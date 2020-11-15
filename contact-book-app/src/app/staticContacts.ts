@@ -2,7 +2,7 @@ import {Contact} from './contact';
 
 export const CONTACTS: Contact[] = [
     {
-        contactId : 0,
+        contactId : "ascott",
         firstName : "Alyssa",
         lastName : "Scott",
         number: "812-123-4567",
@@ -11,7 +11,7 @@ export const CONTACTS: Contact[] = [
         company : null
     },
     {
-        contactId : 1,
+        contactId : "ojansen",
         firstName : "Olivia",
         lastName : "Jansen",
         number: "812-987-6543",
@@ -20,7 +20,7 @@ export const CONTACTS: Contact[] = [
         company : "NCAA"
     },
     {
-        contactId : 2,
+        contactId : "jjacobs",
         firstName : "Jenny",
         lastName : "Jacobs",
         number: "812-444-5555",
@@ -29,7 +29,7 @@ export const CONTACTS: Contact[] = [
         company : "Audubon"
     },
     {
-        contactId : 3,
+        contactId : "dashmoer",
         firstName : "Dylan",
         lastName: "Ashmore",
         number: "502-555-2468",

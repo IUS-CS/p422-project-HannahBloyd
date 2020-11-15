@@ -11,10 +11,10 @@
     </thead>
     <tbody>
         <tr>
-          <td>{{contact.firstName}} {{contact.lastName}}</td>
-          <td>{{contact.number}}</td>
-          <td>{{contact.address}}</td>
-          <td>{{contact.email}}</td>
+          <td>{{(contact | async)?.firstName}} {{(contact | async)?.lastName}}</td>
+          <td>{{(contact | async)?.number}}</td>
+          <td>{{(contact | async)?.address}}</td>
+          <td>{{(contact | async)?.email}}</td>
         </tr>
 </table>
 

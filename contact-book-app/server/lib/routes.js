@@ -5,7 +5,7 @@ let routes = express.Router();
 routes.route('/contacts')
     .get(contacts.root);
 
-routes.route('/contacts/:id')
+routes.route('/contact/:contactId')
     .get(contacts.byContactId);
 
 

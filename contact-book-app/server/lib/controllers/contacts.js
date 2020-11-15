@@ -17,18 +17,18 @@ module.exports = {
     byContactId: (req, res) => {
         const id = req.params.contactId;
 
-        Contact.findOne().byContactId(id).exec((err, contact) => {
+        Contact.findOne().byId(id).exec((err, contact) => {
         if (err) {
             res.status(500);
             res.json(err);
             return;
         }
         if (!contact) {
+            console.log("No contact found");
             res.status(404);
             res.json({'err': 'contact not found'});
             return;
         }
-        console.log('sending contact: ' + contact)
         res.json(contact);
         })
     }
