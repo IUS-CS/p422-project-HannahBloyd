@@ -1,0 +1,35 @@
+<div class="container">
+    <h5>Contact</h5>
+<!-- <table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{(contact | async)?.firstName}} {{(contact | async)?.lastName}}</td>
+          <td>{{(contact | async)?.number}}</td>
+          <td>{{(contact | async)?.address}}</td>
+          <td>{{(contact | async)?.email}}</td>
+        </tr>
+</table> -->
+
+<form [formGroup]="profile" (ngSubmit)="save()">
+    <div>
+        First Name: <input type="firstName" formControlName="firstName">
+        Last Name: <input type="lastName" formControlName="lastName">
+        Phone Number: <input type="number" formControlName="number">
+        Address: <input type="address" formControlName="address">
+        Email: <input type="email" formControlName="email">
+        Company: <input type="company" formControlName="company">
+
+    </div>
+</form>
+
+<button type="button" class="btn btn-outline-primary" (click)="goBack()">Discard Changes</button>
+<button type="button" class="btn btn-outline-primary" (click)="save()" [disabled]="!profile.valid || !profile.dirty">Save Changes</button>
+</div>

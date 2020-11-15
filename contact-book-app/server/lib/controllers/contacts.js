@@ -31,5 +31,17 @@ module.exports = {
         }
         res.json(contact);
         })
+    },
+    saveContact: (req, res) => {
+      console.log(req.body);
+      const sub = new Contact(req.body);
+    sub.save()
+      .then(() => {
+        res.json({status: 'success'})
+      })
+      .catch(err => {
+        res.status(400);
+        res.json(err);
+      });
     }
 }

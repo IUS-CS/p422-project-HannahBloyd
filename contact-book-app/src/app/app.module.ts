@@ -9,6 +9,8 @@ import { ContactDisplayComponent } from './contact-display/contact-display.compo
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import {HttpClientModule} from '@angular/common/http';
+import { EditContactComponent } from './edit-contact/edit-contact.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,16 @@ import {HttpClientModule} from '@angular/common/http';
     ContactDirectoryComponent,
     ContactDisplayComponent,
     PageNotFoundComponent,
-    HomePageComponent
+    HomePageComponent,
+    EditContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,14 @@
 <div>
     <h3>Contacts</h3>
-    <ul class="list-group list-group-flush" *ngFor="let contact of (contactList | async)">
-        <li class="list-group-item" routerLink="/contact/{{contact.contactId}}">{{contact.firstName}} {{contact.lastName}}
-            <button type="button" class="btn btn-outline-primary float-right">Edit Contact</button>
+    <ul class="list-group list-group-flush" >
+        <li class="list-group-item" *ngFor="let contact of (contactList | async)">{{contact.firstName}} {{contact.lastName}}
+            <button type="button" class="btn btn-outline-primary float-right" routerLink="/contact/edit/{{contact.contactId}}">Edit Contact</button>
+            <button type="button" class="btn btn-outline-info float-right" routerLink="/contact/{{contact.contactId}}">View Contact</button>
         </li>
         
     </ul>
+
+    <button type="button" class="btn btn-outline-primary" routerLink="/home">Home Page</button>
 
 </div>
 

@@ -8,5 +8,8 @@ routes.route('/contacts')
 routes.route('/contacts/:contactId')
     .get(contacts.byContactId);
 
+routes.route('/contacts/edit/:contactId')
+    .post(contacts.saveContact);
+
 
 module.exports = routes;

@@ -24,4 +24,8 @@ export class ContactDataService {
   public getAllContacts(): Observable<Contact[]> {
     return this.http.get<Contact[]>(this.url);
   }
+
+  public saveContact(id, contact: Contact): Observable<any> {
+    return this.http.post(`${this.url}/edit/${id}`, contact);
+  }
 }

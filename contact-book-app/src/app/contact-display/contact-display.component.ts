@@ -31,14 +31,6 @@ export class ContactDisplayComponent implements OnInit {
 
     }
 
-    public selectContact(id: Number): void {
-      console.log("Selected contact in contact display " + id);
-      this.contact = this.contactDataService.getContact(name);
-      if (!this.contact) {
-        this.router.navigateByUrl('/notfound');
-      }
-    }
-
     public goBack(): void {
       this.location.back();
     }
