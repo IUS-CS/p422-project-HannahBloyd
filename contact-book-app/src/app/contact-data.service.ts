@@ -15,13 +15,13 @@ export class ContactDataService {
 
   contacts = CONTACTS;
   selectedContact : Contact;
-  private url = '/v1/contact';
+  private url = '/v1/contacts';
 
   public getContact(id : String): Observable<Contact> {
     return this.http.get<Contact>(`${this.url}/${id}`);
   }
 
-  public getContactNames(): Observable<string[]> {
-    return this.http.get<string[]>(this.url);
+  public getAllContacts(): Observable<Contact[]> {
+    return this.http.get<Contact[]>(this.url);
   }
 }

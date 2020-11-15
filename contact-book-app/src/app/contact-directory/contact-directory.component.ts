@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact';
 import { ContactDataService } from '../contact-data.service';
-import { CONTACTS } from '../staticContacts';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -11,10 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./contact-directory.component.css']
 })
 export class ContactDirectoryComponent implements OnInit {
-  allContacts = CONTACTS;
-  // selectedContact : Contact;
   contact: Observable<Contact>;
-  contactNames: Observable<string[]>;
+  contactList: Observable<Contact[]>;
 
   constructor(
     private contactDataService: ContactDataService,
@@ -22,7 +19,7 @@ export class ContactDirectoryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.contactNames = this.contactDataService.getContactNames();
+    this.contactList = this.contactDataService.getAllContacts();
   }
 
 

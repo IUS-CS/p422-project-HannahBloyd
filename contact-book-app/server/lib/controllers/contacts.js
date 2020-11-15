@@ -9,7 +9,7 @@ module.exports = {
         }
         let ret = [];
         for (let contact of contacts) {
-          ret.push(contact.id);
+          ret.push(contact);
         }
         res.json(ret);
       })

@@ -29,12 +29,6 @@ export class ContactDisplayComponent implements OnInit {
       })
     );
 
-    // this.selectedCourse = this.route.paramMap.pipe(
-    //   switchMap((params: ParamMap): Observable<Course> => {
-    //     return this.syllabusDataService.getCouse(params.get('class'));
-    //   })
-    // );
-
     }
 
     public selectContact(id: Number): void {
