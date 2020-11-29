@@ -10,11 +10,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
 
 @Component({
-  selector: 'app-edit-contact',
-  templateUrl: './edit-contact.component.html',
-  styleUrls: ['./edit-contact.component.css']
+  selector: 'app-create-contact',
+  templateUrl: './create-contact.component.html',
+  styleUrls: ['./create-contact.component.css']
 })
-export class EditContactComponent implements OnInit {
+export class CreateContactComponent implements OnInit {
   public contact: Observable<Contact>;
   currentContactId : string;
   status = '';
@@ -39,26 +39,6 @@ export class EditContactComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.currentContactId = this.route.snapshot.params['contactId'];
-    console.log(this.currentContactId)
-
-    this.contact = this.route.paramMap.pipe(
-      switchMap((params: ParamMap): Observable<Contact> => {
-        this.currentContactId = params.get('contactId');
-        return this.contactDataService.getContact(params.get('contactId'));
-      })
-    );
-    // console.log(this.contact);
-    // this.contact.subscribe(c => {
-    //   this.profile.value.firstName = c.firstName;
-    //   this.profile.value.lastName = c.lastName;
-    //   this.profile.value.number = c.number;
-    //   this.profile.value.email = c.email;
-    //   this.profile.value.address = c.address;
-    //   this.profile.value.company = c.company;
-    // });
-
-    // console.log(this.profile);
   }
 
   public goBack(): void {
@@ -72,7 +52,7 @@ export class EditContactComponent implements OnInit {
     }
 
     const updatedContact = new Contact(
-      this.currentContactId,
+      this.profile.value.firstName + this.profile.value.lastName,
       this.profile.value.firstName,
       this.profile.value.lastName,
       this.profile.value.phone,
@@ -81,10 +61,10 @@ export class EditContactComponent implements OnInit {
       this.profile.value.company
     );
 
-    this.contactDataService.saveContact(this.currentContactId, updatedContact)
+    this.contactDataService.createContact(this.currentContactId, updatedContact)
       .subscribe(
         next => {
-          this.status = 'Saved!';
+          this.status = 'Created!';
           this.statusIsError = false;
         },
         err => {
@@ -95,7 +75,7 @@ export class EditContactComponent implements OnInit {
 
       console.log(this.statusIsError);
 
-    this.goBack();
+      this.goBack();
   }
 
 }

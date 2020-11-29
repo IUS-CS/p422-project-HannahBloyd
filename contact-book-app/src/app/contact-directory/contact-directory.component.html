@@ -3,7 +3,7 @@
     <ul class="list-group list-group-flush" >
         <li class="list-group-item" *ngFor="let contact of (contactList | async)">{{contact.firstName}} {{contact.lastName}}
             <button type="button" class="btn btn-outline-primary float-right" routerLink="/contact/edit/{{contact.contactId}}">Edit Contact</button>
-            <button type="button" class="btn btn-outline-info float-right" routerLink="/contact/{{contact.contactId}}">View Contact</button>
+            <button type="button" class="btn btn-outline-info float-right" routerLink="/contact/display/{{contact.contactId}}">View Contact</button>
         </li>
         
     </ul>

@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactDirectoryComponent } from './contact-directory/contact-directory.component';
 import { ContactDisplayComponent } from './contact-display/contact-display.component';
+import { CreateContactComponent } from './create-contact/create-contact.component';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path : 'contacts', component: ContactDirectoryComponent},
-  {path : 'contact/:contactId', component: ContactDisplayComponent},
+  {path : 'contact/display/:contactId', component: ContactDisplayComponent},
   {path : 'contact/edit/:contactId', component: EditContactComponent},
+  {path : 'contact/create', component : CreateContactComponent},
   {path : 'home', component: HomePageComponent},
   { path: '',
 		redirectTo: '/home', 

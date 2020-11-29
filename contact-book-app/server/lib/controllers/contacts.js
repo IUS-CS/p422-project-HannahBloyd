@@ -32,16 +32,52 @@ module.exports = {
         res.json(contact);
         })
     },
-    saveContact: (req, res) => {
+    saveContact: function (req, res) {
+      let body = req.body;
+      // console.log(body);
+      let id = req.params.contactId;
+      let newContact = new Contact(body);
+      // console.log(newContact);
+
+      newContact.save()
+        .then(() => {
+          res.status(200);
+          res.json(newContact.valueOf());
+      })
+      .catch((err) => {
+          console.log("Catching error");
+          res.status(400);
+          res.json(err);
+      })
+
+    },
+    createContact: function (req, res) {
       console.log(req.body);
       const sub = new Contact(req.body);
-    sub.save()
-      .then(() => {
-        res.json({status: 'success'})
-      })
-      .catch(err => {
-        res.status(400);
-        res.json(err);
-      });
+      sub.save()
+        .then(() => {
+          res.json({status: 'success'})
+        })
+        .catch(err => {
+          res.status(400);
+          res.json(err);
+        });
+    }, 
+    deleteContact: function (req, res) {
+      let id = req.params.contactId;
+
+      Contact.findOne().byId(id).exec((err, doc) => {
+        if (err){
+          res.status(500);
+          res.json(err);
+          return;
+      }
+      doc.delete()
+          .then(() => {res.sendStatus(204)})
+          .catch((err) => {
+              res.status(500);
+              res.json(err);
+          })
+        })
     }
-}
+};

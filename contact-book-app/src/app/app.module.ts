@@ -11,6 +11,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CreateContactComponent } from './create-contact/create-contact.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ContactDisplayComponent,
     PageNotFoundComponent,
     HomePageComponent,
-    EditContactComponent
+    EditContactComponent,
+    CreateContactComponent
   ],
   imports: [
     BrowserModule,

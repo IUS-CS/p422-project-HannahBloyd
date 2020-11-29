@@ -13,6 +13,10 @@ import { Observable } from 'rxjs';
 })
 export class ContactDisplayComponent implements OnInit {
   public contact: Observable<Contact>;
+  currentContactId : String;
+  status = '';
+  statusIsError = false;
+
   constructor(
     private contactDataService: ContactDataService,
     private router: Router,
@@ -21,7 +25,7 @@ export class ContactDisplayComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.params['contactId'];
+    this.currentContactId = this.route.snapshot.params['contactId'];
 
     this.contact = this.route.paramMap.pipe(
       switchMap((params: ParamMap): Observable<Contact> => {
@@ -33,6 +37,23 @@ export class ContactDisplayComponent implements OnInit {
 
     public goBack(): void {
       this.location.back();
+    }
+
+    public delete() : void {
+      this.contactDataService.deleteContact(this.currentContactId)
+      .subscribe(
+        next => {
+          this.status = 'Saved!';
+          this.statusIsError = false;
+        },
+        err => {
+          this.status = err;
+          this.statusIsError = true;
+        }
+      );
+
+      console.log(this.statusIsError);
+      this.goBack();
     }
 
 }

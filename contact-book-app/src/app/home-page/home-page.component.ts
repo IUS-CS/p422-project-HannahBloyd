@@ -12,14 +12,4 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  viewAllContacts = false;
-
-  onSelect(){
-    this.viewAllContacts = true;
-  }
-
-  onClear(){
-    this.viewAllContacts = false;
-  }
-
 }

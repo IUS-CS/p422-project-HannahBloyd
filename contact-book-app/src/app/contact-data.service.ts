@@ -26,6 +26,16 @@ export class ContactDataService {
   }
 
   public saveContact(id, contact: Contact): Observable<any> {
-    return this.http.post(`${this.url}/edit/${id}`, contact);
+    console.log(contact);
+    return this.http.put(`${this.url}/${id}`, contact);
+  }
+
+  public createContact(id, contact: Contact): Observable<any>{
+    console.log(contact);
+    return this.http.post(`${this.url}/${id}`, contact);
+  }
+
+  public deleteContact(id): Observable<any>{
+    return this.http.delete(`${this.url}/${id}`);
   }
 }
