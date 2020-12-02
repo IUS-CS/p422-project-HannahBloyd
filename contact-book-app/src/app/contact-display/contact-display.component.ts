@@ -43,7 +43,7 @@ export class ContactDisplayComponent implements OnInit {
       this.contactDataService.deleteContact(this.currentContactId)
       .subscribe(
         next => {
-          this.status = 'Saved!';
+          this.status = 'Deleted!';
           this.statusIsError = false;
         },
         err => {

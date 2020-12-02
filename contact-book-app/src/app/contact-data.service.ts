@@ -27,11 +27,11 @@ export class ContactDataService {
 
   public saveContact(id, contact: Contact): Observable<any> {
     console.log(contact);
+    console.log("id in service " + id);
     return this.http.put(`${this.url}/${id}`, contact);
   }
 
   public createContact(id, contact: Contact): Observable<any>{
-    console.log(contact);
     return this.http.post(`${this.url}/${id}`, contact);
   }
 

@@ -1,22 +1,5 @@
 <div class="container">
     <h5>Contact</h5>
-<!-- <table class="table">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Number</th>
-            <th scope="col">Address</th>
-            <th scope="col">Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-          <td>{{(contact | async)?.firstName}} {{(contact | async)?.lastName}}</td>
-          <td>{{(contact | async)?.number}}</td>
-          <td>{{(contact | async)?.address}}</td>
-          <td>{{(contact | async)?.email}}</td>
-        </tr>
-</table> -->
 
 <form [formGroup]="profile" (ngSubmit)="save()">
     <div>

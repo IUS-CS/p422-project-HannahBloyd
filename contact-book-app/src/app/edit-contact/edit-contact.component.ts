@@ -39,26 +39,21 @@ export class EditContactComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.currentContactId = this.route.snapshot.params['contactId'];
-    console.log(this.currentContactId)
-
     this.contact = this.route.paramMap.pipe(
       switchMap((params: ParamMap): Observable<Contact> => {
         this.currentContactId = params.get('contactId');
         return this.contactDataService.getContact(params.get('contactId'));
       })
     );
-    // console.log(this.contact);
-    // this.contact.subscribe(c => {
-    //   this.profile.value.firstName = c.firstName;
-    //   this.profile.value.lastName = c.lastName;
-    //   this.profile.value.number = c.number;
-    //   this.profile.value.email = c.email;
-    //   this.profile.value.address = c.address;
-    //   this.profile.value.company = c.company;
-    // });
-
-    // console.log(this.profile);
+    this.contact.subscribe(x => {
+      console.log(this.profile);
+      this.profile.get('firstName').setValue(x.firstName);
+      this.profile.get('lastName').setValue(x.lastName);
+      this.profile.get('email').setValue(x.email);
+      this.profile.get('phone').setValue(x.number);
+      this.profile.get('address').setValue(x.address);
+      this.profile.get('company').setValue(x.company);
+    })
   }
 
   public goBack(): void {
