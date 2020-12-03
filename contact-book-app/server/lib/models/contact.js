@@ -14,6 +14,10 @@ ContactSchema.query.byId = function(id) {
     return this.where({contactId: id});
   }
 
+ContactSchema.query.byField = function(field, value){
+  return this.where({[field]: value});
+}
+
 const Contact = mongoose.model('Contact', ContactSchema);
 
 module.exports = Contact;

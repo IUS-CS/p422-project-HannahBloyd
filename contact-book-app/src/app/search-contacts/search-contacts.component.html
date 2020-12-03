@@ -1,1 +1,69 @@
-<p>search-contacts works!</p>
+<h3>Search Contacts</h3>
+    <div>
+    <p>Choose a field to search for</p>
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>First Name</a>
+          <ng-template ngbNavContent>
+            <form [formGroup]="fname" (ngSubmit)="save()">
+                <div>
+                    First Name: <input type="firstName" formControlName="firstName">
+                </div>
+            </form>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Last Name</a>
+          <ng-template ngbNavContent>
+            <form [formGroup]="lname" (ngSubmit)="save()">
+                <div>
+                    Last Name: <input type="lastName" formControlName="lastName">
+                </div>
+            </form>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <a ngbNavLink>Number</a>
+          <ng-template ngbNavContent>
+            <form [formGroup]="num" (ngSubmit)="save()">
+                <div>
+                    Phone Number: <input type="phone" formControlName="phone">
+                </div>
+            </form>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="4">
+            <a ngbNavLink>Company</a>
+            <ng-template ngbNavContent>
+                <form [formGroup]="company" (ngSubmit)="save()">
+                    <div>
+                        Company: <input type="company" formControlName="company">
+                    </div>
+                </form>
+            </ng-template>
+          </li>
+      </ul>
+      
+      <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+
+    <div *ngIf="queriedContacts">
+        <li class="list-group-item" *ngFor="let contact of (queriedContacts | async)">{{contact.firstName}} {{contact.lastName}}
+            <button type="button" class="btn btn-outline-primary float-right" routerLink="/contact/edit/{{contact.contactId}}">Edit Contact</button>
+            <button type="button" class="btn btn-outline-info float-right" routerLink="/contact/display/{{contact.contactId}}">View Contact</button>
+        </li>
+    </div>
+    <!-- <div *ngIf="" >
+        <p>No contacts match search criteria</p>
+    </div> -->
+
+    <!-- <p *ngFor="let alert of alerts">
+        <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+      </p>
+      <p>
+        <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+      </p> -->
+
+
+<button type="button" class="btn btn-outline-primary" routerLink="/home">Home Page</button>
+<button type="button" class="btn btn-outline-primary" (click)="search()">Search</button>

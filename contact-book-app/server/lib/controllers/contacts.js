@@ -73,5 +73,18 @@ module.exports = {
           res.json(err);
         })
     })
+  },
+  search: function (req, res) {
+    let field = req.params.searchField;
+    let value = req.params.searchValue;
+
+    Contact.find().byField(field, value).exec((err, doc) => {
+      if (err) {
+        res.status(500);
+        res.json(err);
+        return;
+      }
+      res.json(doc);
+    })
   }
 };

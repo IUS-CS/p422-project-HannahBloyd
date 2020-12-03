@@ -6,8 +6,6 @@ import {Location} from '@angular/common';
 import {switchMap} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
-import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-contact',

@@ -38,4 +38,8 @@ export class ContactDataService {
   public deleteContact(id): Observable<any>{
     return this.http.delete(`${this.url}/${id}`);
   }
+
+  public searchContacts(field, value) : Observable<Contact[]>{
+    return this.http.get<Contact[]>(`${this.url}/search/${field}/${value}`);
+  }
 }

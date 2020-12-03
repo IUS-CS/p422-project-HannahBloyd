@@ -9,8 +9,10 @@ routes.route('/contacts/:contactId')
     .get(contacts.byContactId)
     .put(contacts.saveContact)
     .post(contacts.createContact)
-    .delete(contacts.deleteContact)
-    
+    .delete(contacts.deleteContact);
+
+routes.route('/contacts/search/:searchField/:searchValue')
+    .get(contacts.search);
 
 
 module.exports = routes;

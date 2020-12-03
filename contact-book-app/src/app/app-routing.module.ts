@@ -6,12 +6,14 @@ import { CreateContactComponent } from './create-contact/create-contact.componen
 import { EditContactComponent } from './edit-contact/edit-contact.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchContactsComponent} from './search-contacts/search-contacts.component';
 
 const routes: Routes = [
   {path : 'contacts', component: ContactDirectoryComponent},
   {path : 'contact/display/:contactId', component: ContactDisplayComponent},
   {path : 'contact/edit/:contactId', component: EditContactComponent},
   {path : 'contact/create', component : CreateContactComponent},
+  {path : 'contact/search', component : SearchContactsComponent},
   {path : 'home', component: HomePageComponent},
   { path: '',
 		redirectTo: '/home', 
