@@ -48,21 +48,14 @@
     </div>
 
     <div *ngIf="queriedContacts">
-        <li class="list-group-item" *ngFor="let contact of (queriedContacts | async)">{{contact.firstName}} {{contact.lastName}}
+        <li class="list-group-item" *ngFor="let contact of queriedContacts">{{contact.firstName}} {{contact.lastName}}
             <button type="button" class="btn btn-outline-primary float-right" routerLink="/contact/edit/{{contact.contactId}}">Edit Contact</button>
             <button type="button" class="btn btn-outline-info float-right" routerLink="/contact/display/{{contact.contactId}}">View Contact</button>
         </li>
     </div>
-    <!-- <div *ngIf="" >
-        <p>No contacts match search criteria</p>
-    </div> -->
-
-    <!-- <p *ngFor="let alert of alerts">
-        <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
-      </p>
-      <p>
-        <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
-      </p> -->
+    <div *ngIf="!queriedContactsLength && hasSearched" >
+        <ngb-alert type="warning" (closed)="msg = ''">No contacts match this criteria</ngb-alert>
+    </div>
 
 
 <button type="button" class="btn btn-outline-primary" routerLink="/home">Home Page</button>

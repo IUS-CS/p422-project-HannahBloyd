@@ -13,8 +13,11 @@ import { ContactDataService } from '../contact-data.service';
 
 export class SearchContactsComponent implements OnInit {
   active = 1;
-  queriedContacts :  Observable<Contact[]>;
-  // alert : Alert = {type: 'warning', message: 'No contacts found'};
+  queriedContacts : Contact[];
+  queriedContactsLength;
+  msg : String;
+  // type = "warning";
+  hasSearched = false;
 
   fname = new FormGroup({
     firstName: new FormControl('')
@@ -82,8 +85,15 @@ export class SearchContactsComponent implements OnInit {
       return;
     }
 
-    this.queriedContacts = this.contactDataService.searchContacts(type, val);
-    console.log(this.queriedContacts);
+    this.contactDataService.searchContacts(type, val)
+    .subscribe(
+      next => {
+        this.queriedContacts = next;
+        this.queriedContactsLength = next.length;
+      }
+    );
+
+    this.hasSearched = true;
   }
 
 }
